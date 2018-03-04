@@ -1,0 +1,653 @@
+回顾:
+1.final:最终的、不可改变的
+  1)修饰变量:变量不能被改变
+  2)修饰方法:方法不能被重写
+  3)修饰类:类不能被继承
+2.static final:常量
+  1)必须声明同时初始化
+  2)类名点来访问，不能被改变
+  3)大写，多个单词用_分隔
+  4)编译器在编译时自动替换为具体的值
+3.抽象方法:
+  1)abstract
+  2)只有方法的定义，没有方法体
+4.抽象类:
+    abstract，包含抽象方法的类必须是抽象类
+    不能被实例化，是需要被继承的，子类:
+	  1)重写所有抽象方法---变不完整为完整
+	  2)也声明抽象类------不常用
+	意义:封装共有的，统一的类型，
+	     定义抽象方法，为所有子类提供统一的入口
+5.接口:
+    标准、规范，引用类型，interface定义，
+	只能常量和抽象方法，不能被实例化
+	需要被实现的，实现类:必须重写所有抽象方法
+	一个类可以实现多个接口，用逗号隔开
+	接口继承接口
+
+
+
+
+
+正课:
+1.多态:
+  1)意义:
+    1.1)同一类型的引用，指向不同的对象时，有不同的实现
+	    -------行为的多态: cut()，run()，teach()...
+	1.2)同一个对象，被造型为不同的类型时，有不同的功能
+	    -------对象的多态: 我，你，水...
+  2)向上造型:
+    2.1)父类型的引用指向子类的对象
+	2.2)能造型成为的类型有: 父类+所实现的接口
+	2.3)能点出来什么，看引用的类型
+  3)强制类型转换，成功的条件只有如下两种:
+    3.1)引用所指向的对象，就是该类型
+	3.2)引用所指向的对象，实现了该接口
+  4)强转若不符合如上两个条件，则发生ClassCastException类型转换异常
+    建议:在强转之前先使用instanceof来判断引用指向的对象是否是该类型
+2.成员内部类:-----实际应用率低
+  1)类中套类，外面的称为Outer外部类，里面的称为Inner内部类
+  2)内部类通常只服务于外部类，对外不具备可见性
+  3)内部类对象通常只能在外部类中创建
+  4)内部类中可以直接访问外部类的成员(包括私有的)
+    在内部类中有个隐式的引用指向了创建它的外部类对象
+	  外部类名.this.
+3.匿名内部类:
+  1)若想创建一个类(子类)的对象，并且对象只需创建一个
+    此时该类不必命名，称之为匿名内部类
+  2)内部类中访问外部的变量，该变量必须是final的
+
+
+
+面向对象三大特征:
+1)封装:
+  1.1)类:封装的是对象的属性和行为
+  1.2)方法:封装的是具体的业务逻辑实现
+  1.3)访问控制修饰符:封装的是访问的权限
+2)继承:
+  2.1)作用:代码的复用
+  2.2)父类/基类:共有的属性和行为
+      子类/派生类:特有的属性和行为
+  2.3)子继承父之后，子具有:父+子
+  2.4)传递性、单一继承，多接口实现
+3)多态:
+  3.1)意义:行为的多态、对象的多态
+  3.2)向上造型、强制类型转换、instanceof判断
+  3.3)多态的表现形式:
+      3.3.1)重写:根据对象来多态
+	  3.3.2)重载:根据参数来多态
+
+
+面向对象课程安排:
+第一天:
+  1.什么是类?什么是对象?
+  2.如何创建类？如何创建对象？如何访问成员？
+  3.引用类型之间画等号
+  4.null和NullPointerException
+第二天:
+  1.方法的重载
+  2.构造方法
+  3.this
+  4.引用类型数组
+第三天:
+  1.内存管理:堆、栈、方法区
+  2.继承
+  3.super
+  4.向上造型
+第四天:
+  1.方法的重写、重写与重载的区别
+  2.package和import
+  3.访问控制修饰符
+  4.static
+  5.final
+  6.static final
+第五天:
+  1.抽象方法
+  2.抽象类
+  3.接口
+第六天:
+  1.多态:意义、向上造型、强制类型转换、instanceof
+  2.内部类:成员内部类、匿名内部类
+
+
+
+设计规则:
+1)将所有子类共有的属性和行为，抽象到父类中
+2)所有子类行为都一样，设计为普通方法
+  所有子类行为不一样，设计为抽象方法
+3)将部分子类共有的行为，抽象到接口中
+  符合既是也是原则时，使用接口
+  接口是对继承单根性的扩展(多继承)
+
+
+
+
+面试题:
+  如何不借助于第三个数来交换两个数(+和-)
+     int a=5,b=8;
+	 a = a+b; //a=13
+	 b = a-b; //b=5
+	 a = a-b; //a=8
+
+
+练习:
+1.完成农行ATM系统(完整版)----重新写至少一次
+2.预习射击游戏(类结构)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+System.out.println();
+System.out.println(56);
+System.out.println(345.6);
+System.out.println('你');
+System.out.println(true);
+System.out.println("hello");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+能听得懂，但是写不出来-------------不用重听
+听不懂我说什么了-------------------下个月见
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mama$Baby.class
+NstInnerClassDemo$1.class
+NstInnerClassDemo$2.class
+NstInnerClassDemo$3.class
+
+
+
+问:内部类有自己独立的.class吗?
+答:有
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.2,1.3,1.4,1.5,1.6,1.7---------内存管理几乎没有改变
+1.8-----------------------------内存管理上改变了很多
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+InnerClassDemo
+NstInnerClassDemo
+
+
+
+
+
+
+
+
+
+
+Aoo o1 = new Aoo();
+Boo o2 = new Boo(); //编译错误
+
+
+class Aoo{ //外部类
+  private int a;
+  void show(){
+    Boo o3 = new Boo(); //正确
+  }
+  class Boo{ //内部类
+    void test(){
+	  System.out.println(a);
+	  System.out.println(Aoo.this.a);
+
+	  System.out.println(this.a); //编译错误
+	}
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int choice = scan.nextInt();
+
+
+
+
+
+
+
+
+
+
+
+
+农行ATM机系统:
+1)所有卡都能插
+2)只有农行卡才能支付电话费
+
+
+
+
+
+ABCATM atm = new ABCATM(); //农行atm机对象
+UnionPay card = new ABCImpl();
+atm.insertCard(card);
+atm.支付电话费();
+
+
+class ABCATM{ //农行ATM类
+  private UnionPay card; //银联卡
+  public void insertCard(UnionPay card){ //插卡
+    this.card = card;
+  }
+  public void 支付电话费(){
+    if(card instanceof ABCImpl){ //是农行卡
+	  ABCImpl abcCard = (ABCImpl)card;
+      abcCard.payTelBill("12345678945",500);
+	}else{ //不是农行卡
+	  System.out.println("不是农行卡，不能支付电话费");
+	}
+  }
+  
+
+}
+
+
+
+
+
+
+
+
+
+UnionPay card = new ICBCImpl();
+UnionPay card = new ABCImpl();
+UnionPay card = new CCBImpl();
+UnionPay card = new ???Impl();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aoo o1 = new Boo();
+Boo o2 = (Boo)o1;       //符合条件1
+Inter1 o3 = (Inter1)o1; //符合条件2
+Coo o4 = (Coo)o1; //ClassCastException类型转换异常
+if(o1 instanceof Coo){ //false
+  Coo o5 = (Coo)o1;
+}
+
+
+System.out.println(o1 instanceof Boo);    //true
+System.out.println(o1 instanceof Inter1); //true
+System.out.println(o1 instanceof Coo);    //false
+
+
+interface Inter1{
+}
+class Aoo{
+}
+class Boo extends Aoo implements Inter1{
+}
+class Coo extends Aoo{
+}
+
+
+MultiTypeDemo
+
+
+
+
+
+
+
+
+
+
+
+父类大，子类小
+Person p1 = new Student(); //向上造型(自动类型转换)
+
+1)自动转:小到大
+2)强制转:大到小
+
+
+
+
+
+
+
+
+
+
+
+我 me = new 我();
+讲师       o1 = me;
+孩子他妈   o2 = me;
+老公的老婆 o3 = me;
+
+o1.授课();
+o2.揍他();
+o3.咬他();
+o3.收工资();
+
+me.授课();
+me.揍他();
+me.咬他();
+me.收工资();
+
+
+interface 讲师{
+  void 授课();
+}
+interface 孩子他妈{
+  void 揍他();
+}
+interface 老公的老婆{
+  void 咬他();
+  void 收工资();
+}
+class 我 implements 讲师,孩子他妈,老公的老婆{
+  public void 授课(){}
+  public void 揍他(){}
+  public void 咬他(){}
+  public void 收工资(){}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Animal o1 = new Tiger();
+Animal o2 = new Fish();
+Animal o3 = new Bird();
+o1.run(); //地
+o2.run(); //水
+o3.run(); //天
+
+
+abstract class Animal{
+  abstract void run();
+}
+class Tiger extends Animal{
+  void run(){ 在地上跑 }
+}
+class Fish extends Animal{
+  void run(){ 在水里游 }
+}
+class Bird extends Animal{
+  void run(){ 在天上飞 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+人 p1 = new 理发师();
+人 p2 = new 外科医生();
+人 p3 = new 演员();
+
+p1.cut(); //剪发
+p2.cut(); //开刀
+p3.cut(); //停止表演
+
+
+abstract class 人{
+  abstract void cut();
+}
+class 理发师 extends 人{
+  void cut(){ 剪发 }
+}
+class 外科医生 extends 人{
+  void cut(){ 开刀 }
+}
+class 演员 extends 人{
+  void cut(){ 停止表演 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+达内教学副总裁:
+   培训员工()，解决问题()，编辑稿件()
+达内讲师:
+   培训员工()，解决问题()，编辑稿件()
+达内项目经理:
+   编辑稿件()
+
+abstract class 达内职员{
+  姓名、年龄、工资
+  void 上班打卡(){ 按个手纹、拍个照 }
+  void 下班打卡(){ 按个手纹、拍个照 }
+  abstract void 完成工作();
+}
+interface 企业技术顾问{
+  void 培训员工();
+  void 解决问题();
+}
+interface 技术图书作者{
+  void 编辑稿件();
+}
+class 达内教学副总裁 extends 达内职员 implements 企业技术顾问,技术图书作者{
+}
+class 达内讲师 extends 达内职员 implements 企业技术顾问,技术图书作者{
+}
+class 达内项目经理 extends 达内职员 implements 技术图书作者{
+}
+class 达内班主任 extends 达内职员{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+interface CCB extends UnionPay{
+  public boolean payFire(double sum);
+}
+class CCBImpl implements CCB{
+  重写4个
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Six extends Shape{
+  public Six(double c){
+    this.c = c;
+  }
+  public double area(){
+    return 0.0721*c*c;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
